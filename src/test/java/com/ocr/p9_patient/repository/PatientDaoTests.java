@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests DAO with H2 database in memory
  */
 @SpringBootTest
-public class PatientDMLTests {
+public class PatientDaoTests {
 
     @Autowired
     private PatientRepository patientRepository;

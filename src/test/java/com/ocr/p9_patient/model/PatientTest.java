@@ -29,6 +29,8 @@ public class PatientTest {
         assertTrue(patient.getAddress() == "12 rue des oliviers");
         assertTrue(patient.getFamilly() == "TestFamille");
         assertTrue(patient.getGiven() == "Test");
+        assertTrue(patient.getId() != null);
+        assertTrue(patient.getBirthDate() != null);
 
     }
 }
