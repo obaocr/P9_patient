@@ -1,5 +1,6 @@
 package com.ocr.p9_patient.service;
 
+import Utils.EntityNotFoundException;
 import com.ocr.p9_patient.model.Patient;
 import com.ocr.p9_patient.repository.PatientRepository;
 import org.apache.logging.log4j.LogManager;
@@ -9,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-// TODO gérer les erreurs DML, exceptions ?
 
 @Service
 public class PatientServiceImpl implements  PatientService {
@@ -33,7 +32,7 @@ public class PatientServiceImpl implements  PatientService {
         if(patient != null) {
             return patient.get();
         } else {
-            throw new IllegalArgumentException("Invalid Patient Id:" + Id);
+            throw new EntityNotFoundException("Patient not found for Id:" + Id);
         }
     }
 
@@ -46,7 +45,9 @@ public class PatientServiceImpl implements  PatientService {
     @Override
     public Boolean updatePatient(Patient patient) {
         log.debug("updatePatient");
+        this.getPatientById(patient.getId());
         patientRepository.save(patient);
         return true;
     }
+
 }

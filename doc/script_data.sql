@@ -1,6 +1,6 @@
-DROP TABLE Patient;
+DROP TABLE p9ocr.Patient;
 
-CREATE TABLE Patient (
+CREATE TABLE p9ocr.Patient (
   PATIENT_ID INT NOT NULL AUTO_INCREMENT,
   LAST_NAME VARCHAR(50) NOT NULL,
   FIRST_NAME VARCHAR(50) NOT NULL,
@@ -15,6 +15,11 @@ CREATE TABLE Patient (
 )
 ;
 
-insert into Patient(LAST_NAME, FIRST_NAME, FAMILLY, GIVEN, ADDRESS, SEX, BIRTH_DATE)
+insert into p9ocr.Patient(LAST_NAME, FIRST_NAME, FAMILLY, GIVEN, ADDRESS, SEX, BIRTH_DATE)
     values("DUPOND", "Alain", "TestNone", "Test", "12 rue des olivier 78000 Versailles", "F", STR_TO_DATE('24-09-1995', '%d-%m-%Y'))
 ;
+insert into p9ocr.Patient(LAST_NAME, FIRST_NAME, FAMILLY, GIVEN, ADDRESS, SEX, BIRTH_DATE)
+    values("DUPONT", "Alain", "TestNone", "Test", "12 rue des olivier 78000 Versailles", "F", STR_TO_DATE('24-09-1995', '%d-%m-%Y'))
+;
+
+commit;
