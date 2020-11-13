@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // TODO controller + exceptions + tests Ctrl + exceptions DML ?
 // TODO Jacoco
 // TODO Docker
-// TODO tests postman
-// TODO A voir si je retourne JSON ou String
+// TODO ... Custom exception not_found ne fonctionne pas ... à voir ... rend un 404 (au lieu de nOT_FOUND) avec tout le message détaillé...
 
 @SpringBootApplication
 public class P9PatientApplication {

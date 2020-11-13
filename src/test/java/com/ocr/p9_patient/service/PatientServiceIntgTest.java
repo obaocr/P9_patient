@@ -16,6 +16,16 @@ public class PatientServiceIntgTest {
     private PatientService patientService;
 
     @Test
+    void patientGetById_NotFound() {
+        try {
+            Patient patient = patientService.getPatientById(123456);
+        } catch (Exception e) {
+            System.out.println("Exception du test :" + e.toString());
+            assertTrue(e.toString().contains("Patient not found"));
+        }
+    }
+
+    @Test
     void addPatient() {
         Date birth = new Date();
         Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
