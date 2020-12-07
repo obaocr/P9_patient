@@ -42,7 +42,7 @@ public class PatientControlerTest {
     @Test
     void getAllPatientShouldReturnOK() throws Exception {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Jean", "12 rue des acacias", "M", birth, "+33 123456789");
         List<Patient> patients = new ArrayList<>();
         patients.add(patient);
         Mockito.when(patientService.getPatients()).thenReturn(patients);
@@ -57,7 +57,7 @@ public class PatientControlerTest {
     @Test
     void getPatientByIdShouldReturnOK() throws Exception {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain", "24 rue des acacias", "M", birth, "+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.getPatientById(999)).thenReturn(patient);
 
@@ -72,7 +72,7 @@ public class PatientControlerTest {
     @Test
     void getPatientByIdShouldReturn_KO() throws Exception {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.getPatientById(999)).thenReturn(patient);
         // Id null => KO
@@ -85,9 +85,9 @@ public class PatientControlerTest {
     }
 
     @Test
-    void addPatientShouldReturnOK() throws Exception {
+    void addPatientShouldReturn_OK() throws Exception {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
         Mockito.when(patientService.addPatient(patient)).thenReturn(999);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -102,9 +102,9 @@ public class PatientControlerTest {
     }
 
     @Test
-    void addPatientShouldReturn_OK() throws Exception {
+    void addPatientShouldReturn_KO() throws Exception {
         Date birth = new Date();
-        Patient patient = new Patient("", "", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("TestFamille", "", "12 rue des oliviers", "M", birth,"+33 123456789");
         Mockito.when(patientService.addPatient(patient)).thenReturn(999);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -121,7 +121,7 @@ public class PatientControlerTest {
     @Test
     void updatePatientShouldReturnOK() throws Exception {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.updatePatient(patient)).thenReturn(true);
 
