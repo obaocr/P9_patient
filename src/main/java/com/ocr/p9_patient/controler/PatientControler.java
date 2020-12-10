@@ -1,6 +1,6 @@
 package com.ocr.p9_patient.controler;
 
-import Utils.EntityIllegalArgumentException;
+import com.ocr.p9_patient.Utils.EntityIllegalArgumentException;
 import com.ocr.p9_patient.model.Patient;
 import com.ocr.p9_patient.service.PatientService;
 import org.slf4j.Logger;
@@ -23,8 +23,8 @@ public class PatientControler {
     PatientService patientService;
 
     private void checkInput(Patient patient) {
-        if (patient == null || patient.getFirstName().isEmpty() || patient.getLastName().isEmpty() ||  patient.getAddress().isEmpty()
-                || patient.getBirthDate() == null || patient.getFamilly().isEmpty() ||  patient.getGiven().isEmpty() || patient.getSex().isEmpty()) {
+        if (patient == null || patient.getFamilly().isEmpty() || patient.getGiven().isEmpty() ||  patient.getAddress().isEmpty()
+                || patient.getBirthDate() == null || patient.getSex().isEmpty() || patient.getPhone().isEmpty()) {
             logger.error("All fields are mandatory for a Patient");
             throw new EntityIllegalArgumentException("All fields are mandatory for a Patient");
         }

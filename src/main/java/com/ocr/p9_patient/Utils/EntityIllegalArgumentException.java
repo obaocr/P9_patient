@@ -1,4 +1,4 @@
-package Utils;
+package com.ocr.p9_patient.Utils;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -15,16 +15,12 @@ public class PatientTest {
         Date birth = new Date();
         Patient patient = new Patient();
         patient.setId(1);
-        patient.setLastName("Martin");
-        patient.setFirstName("Alain");
         patient.setAddress("12 rue des oliviers");
         patient.setFamilly("TestFamille");
         patient.setGiven("Test");
         patient.setSex("M");
         patient.setBirthDate(birth);
         assertTrue(patient != null);
-        assertTrue(patient.getFirstName() == "Alain");
-        assertTrue(patient.getLastName() == "Martin");
         assertTrue(patient.getSex() == "M");
         assertTrue(patient.getAddress() == "12 rue des oliviers");
         assertTrue(patient.getFamilly() == "TestFamille");

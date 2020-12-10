@@ -1,6 +1,6 @@
 package com.ocr.p9_patient.service;
 
-import Utils.EntityNotFoundException;
+import com.ocr.p9_patient.Utils.EntityNotFoundException;
 import com.ocr.p9_patient.model.Patient;
 import com.ocr.p9_patient.repository.PatientRepository;
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+/**
+ * PatientServiceImpl : implementation for patient
+ */
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -44,8 +48,14 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Boolean updatePatient(Patient patient) {
         log.debug("updatePatient");
-        this.getPatientById(patient.getId());
-        patientRepository.save(patient);
+        Patient patientToUpdate = this.getPatientById(patient.getId());
+        patientToUpdate.setFamilly(patient.getFamilly());
+        patientToUpdate.setGiven(patient.getGiven());
+        patientToUpdate.setSex(patient.getSex());
+        patientToUpdate.setAddress(patient.getAddress());
+        patientToUpdate.setPhone(patient.getPhone());
+        patientToUpdate.setBirthDate(patient.getBirthDate());
+        patientRepository.save(patientToUpdate);
         return true;
     }
 

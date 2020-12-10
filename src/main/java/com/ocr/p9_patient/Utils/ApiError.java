@@ -1,4 +1,4 @@
-package Utils;
+package com.ocr.p9_patient.Utils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;

@@ -39,7 +39,7 @@ public class PatientServiceTest {
     @Test
     void patientGetAll() {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         List<Patient> patients = new ArrayList<>();
         patients.add(patient);
         Mockito.when(patientRepository.findAll()).thenReturn(patients);
@@ -50,7 +50,7 @@ public class PatientServiceTest {
     @Test
     void patientGetById() {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         patient.setId(999);
         Mockito.when(patientRepository.findById(999)).thenReturn(Optional.of(patient));
         Patient itemPatient = patientService.getPatientById(999);

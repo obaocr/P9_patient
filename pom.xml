@@ -13,7 +13,7 @@
 	<artifactId>p9_patient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>p9_patient</name>
-	<description>Demo project for Spring Boot</description>
+	<description>P9 Patient - Back</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

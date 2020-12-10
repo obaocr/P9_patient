@@ -28,7 +28,7 @@ public class PatientServiceIntgTest {
     @Test
     void addPatient() {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         Integer Id = patientService.addPatient(patient);
         assertTrue(Id > 0);
     }
@@ -36,20 +36,20 @@ public class PatientServiceIntgTest {
     @Test
     void updatePatient() {
         Date birth = new Date();
-        Patient patient = new Patient("Martin", "Alain", "TestFamille", "Test", "12 rue des oliviers", "M", birth);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         Integer Id = patientService.addPatient(patient);
         assertTrue(Id > 0);
         //
         Patient patient1 = patientService.getPatientById(Id);
         assertTrue(patient1 != null);
         //
-        patient1.setFirstName("Christian");
-        patient1.setLastName("Dupont");
+        patient1.setFamilly("Christian");
+        patient1.setGiven("Dupont");
         patientService.updatePatient(patient1);
         //
         patient1 = patientService.getPatientById(Id);
-        assertTrue(patient1.getFirstName() == "Christian");
-        assertTrue(patient1.getLastName() == "Dupont");
+        assertTrue(patient1.getFamilly() == "Christian");
+        assertTrue(patient1.getGiven() == "Dupont");
 
     }
 

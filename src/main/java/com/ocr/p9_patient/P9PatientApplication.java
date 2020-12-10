@@ -3,10 +3,9 @@ package com.ocr.p9_patient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// TODO controller + exceptions + tests Ctrl + exceptions DML ?
 // TODO Jacoco
 // TODO Docker
-// TODO ... Custom exception not_found ne fonctionne pas ... à voir ... rend un 404 (au lieu de nOT_FOUND) avec tout le message détaillé...
+// TODO les dates creation/màj sont  à nulle ? à gérer dans ce code en cas de post/put
 
 @SpringBootApplication
 public class P9PatientApplication {

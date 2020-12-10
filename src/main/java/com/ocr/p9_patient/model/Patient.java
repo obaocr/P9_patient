@@ -14,17 +14,15 @@ public class Patient {
     @Column(name="PATIENT_ID")
     private Integer Id;
     @NotBlank(message = "Please enter an lastName")
-    @Column(name="LAST_NAME")
-    private String lastName;
-    @NotBlank(message = "Please enter an firstName")
-    @Column(name="FIRST_NAME")
-    private String firstName;
     @Column(name="FAMILLY")
     private String familly;
+    @NotBlank(message = "Please enter an firstName")
     @Column(name="GIVEN")
     private String given;
     @Column(name="ADDRESS")
     private String address;
+    @Column(name="PHONE")
+    private String phone;
     @Column(name="SEX")
     private String sex;
     @Basic
@@ -40,14 +38,13 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String lastName, String firstName, String familly, String given, String address, String sex, Date birthDate) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.familly = familly;
-        this.given = given;
+    public Patient(String famillyName, String givenName, String address, String sex, Date birthDate, String phone) {
+        this.familly = famillyName;
+        this.given = givenName;
         this.address = address;
         this.sex = sex;
         this.birthDate = birthDate;
+        this.phone = phone;
     }
 
     public Integer getId() {
@@ -56,22 +53,6 @@ public class Patient {
 
     public void setId(Integer id) {
         Id = id;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getFamilly() {
@@ -92,6 +73,14 @@ public class Patient {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setAddress(String address) {
