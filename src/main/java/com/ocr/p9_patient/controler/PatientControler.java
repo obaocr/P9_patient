@@ -66,4 +66,10 @@ public class PatientControler {
         return patientService.addPatient(patient);
     }
 
+    @DeleteMapping(value = "/Patient/{Id}")
+    public Boolean deletePatient(@PathVariable("Id") Integer Id) {
+        logger.debug("deletePatient");
+        return patientService.deletePatientById(Id);
+    }
+
 }

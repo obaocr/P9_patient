@@ -59,4 +59,13 @@ public class PatientServiceImpl implements PatientService {
         return true;
     }
 
+    // TODO gérer not found ou not delete ... pour le moment je fais simple
+    @Override
+    public Boolean deletePatientById(Integer Id) {
+        log.debug("deletePatientById");
+        Patient patientToDelete = this.getPatientById(Id);
+        patientRepository.deleteById(Id);
+        return true;
+    }
+
 }

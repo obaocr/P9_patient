@@ -9,4 +9,5 @@ public interface PatientService {
     public Patient getPatientById(Integer Id);
     public Integer addPatient(Patient patient);
     public Boolean updatePatient(Patient patient);
+    public Boolean deletePatientById(Integer Id);
 }
