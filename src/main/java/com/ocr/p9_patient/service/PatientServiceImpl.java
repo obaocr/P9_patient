@@ -8,6 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,6 +44,9 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Integer addPatient(Patient patient) {
         log.debug("getPatientById");
+        LocalDateTime dtUpdate = LocalDateTime.now();
+        patient.setCreateDate(dtUpdate);
+        patient.setUpdateDate(dtUpdate);
         return patientRepository.save(patient).getId();
     }
 
@@ -55,6 +60,8 @@ public class PatientServiceImpl implements PatientService {
         patientToUpdate.setAddress(patient.getAddress());
         patientToUpdate.setPhone(patient.getPhone());
         patientToUpdate.setBirthDate(patient.getBirthDate());
+        LocalDateTime dtUpdate = LocalDateTime.now();
+        patientToUpdate.setUpdateDate(dtUpdate);
         patientRepository.save(patientToUpdate);
         return true;
     }

@@ -13,10 +13,8 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="PATIENT_ID")
     private Integer Id;
-    @NotBlank(message = "Please enter an lastName")
     @Column(name="FAMILLY")
     private String familly;
-    @NotBlank(message = "Please enter an firstName")
     @Column(name="GIVEN")
     private String given;
     @Column(name="ADDRESS")
