@@ -3,6 +3,7 @@ package com.ocr.p9_patient.model;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ public class PatientTest {
 
     @Test
     void patientConstructorTest () {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient();
         patient.setId(1);
         patient.setAddress("12 rue des oliviers");

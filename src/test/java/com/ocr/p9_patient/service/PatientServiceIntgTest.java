@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,7 +28,7 @@ public class PatientServiceIntgTest {
 
     @Test
     void addPatient() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         Integer Id = patientService.addPatient(patient);
         assertTrue(Id > 0);
@@ -35,7 +36,7 @@ public class PatientServiceIntgTest {
 
     @Test
     void updatePatient() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         Integer Id = patientService.addPatient(patient);
         assertTrue(Id > 0);

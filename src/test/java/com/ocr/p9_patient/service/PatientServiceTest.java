@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,7 +39,7 @@ public class PatientServiceTest {
 
     @Test
     void patientGetAll() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         List<Patient> patients = new ArrayList<>();
         patients.add(patient);
@@ -49,7 +50,7 @@ public class PatientServiceTest {
 
     @Test
     void patientGetById() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
         patient.setId(999);
         Mockito.when(patientRepository.findById(999)).thenReturn(Optional.of(patient));

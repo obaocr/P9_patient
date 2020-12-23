@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,7 +32,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient getPatientById(Integer Id) {
         log.debug("getPatientById");
-        if(patientRepository.findById(Id).isPresent()) {
+        if (patientRepository.findById(Id).isPresent()) {
             return patientRepository.findById(Id).get();
         } else {
             throw new EntityNotFoundException("Patient not found for Id: " + Id);
@@ -66,7 +65,6 @@ public class PatientServiceImpl implements PatientService {
         return true;
     }
 
-    // TODO gérer not found ou not delete ... pour le moment je fais simple
     @Override
     public Boolean deletePatientById(Integer Id) {
         log.debug("deletePatientById");

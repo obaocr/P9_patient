@@ -12,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,7 +42,7 @@ public class PatientControlerTest {
 
     @Test
     void getAllPatientShouldReturnOK() throws Exception {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Jean", "12 rue des acacias", "M", birth, "+33 123456789");
         List<Patient> patients = new ArrayList<>();
         patients.add(patient);
@@ -56,7 +57,7 @@ public class PatientControlerTest {
 
     @Test
     void getPatientByIdShouldReturnOK() throws Exception {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "24 rue des acacias", "M", birth, "+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.getPatientById(999)).thenReturn(patient);
@@ -71,7 +72,7 @@ public class PatientControlerTest {
 
     @Test
     void getPatientByIdShouldReturn_KO() throws Exception {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.getPatientById(999)).thenReturn(patient);
@@ -86,7 +87,7 @@ public class PatientControlerTest {
 
     @Test
     void addPatientShouldReturn_OK() throws Exception {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
         Mockito.when(patientService.addPatient(patient)).thenReturn(999);
 
@@ -103,7 +104,7 @@ public class PatientControlerTest {
 
     @Test
     void addPatientShouldReturn_KO() throws Exception {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("TestFamille", "", "12 rue des oliviers", "M", birth,"+33 123456789");
         Mockito.when(patientService.addPatient(patient)).thenReturn(999);
 
@@ -120,7 +121,7 @@ public class PatientControlerTest {
 
     @Test
     void updatePatientShouldReturnOK() throws Exception {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.updatePatient(patient)).thenReturn(true);

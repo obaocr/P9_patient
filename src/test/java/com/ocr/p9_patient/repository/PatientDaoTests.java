@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class PatientDaoTests {
 
     @Test
     void patientCreationTest() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient();
         patient.setAddress("12 rue des oliviers");
         patient.setFamilly("TestFamille");
@@ -35,7 +36,7 @@ public class PatientDaoTests {
 
     @Test
     void patientCreationConstructorTest() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth, "+33 123456789");
         patientRepository.save(patient);
         assertNotNull(patient.getId());
@@ -43,7 +44,7 @@ public class PatientDaoTests {
 
     @Test
     void patientFindAllTest() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth, "+33 123456789");
         patientRepository.save(patient);
         List<Patient> patients = patientRepository.findAll();
@@ -52,7 +53,7 @@ public class PatientDaoTests {
 
     @Test
     void patientUpdateTest() {
-        Date birth = new Date();
+        LocalDate birth = LocalDate.of(2000,1,15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth, "+33 123456789");
         patientRepository.save(patient);
         Patient patient2 = patientRepository.findAll().get(0);

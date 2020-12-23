@@ -4,9 +4,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+/**
+ * Model for Patient
+ */
 @Entity
 @Table(name = "Patient")
 public class Patient {
@@ -27,7 +31,8 @@ public class Patient {
     private String sex;
     @Basic
     @Column(name="BIRTH_DATE")
-    private Date birthDate;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private LocalDate birthDate;
     @Basic
     @Column(name="CREATE_DATE")
     private LocalDateTime createDate;
@@ -38,7 +43,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String famillyName, String givenName, String address, String sex, Date birthDate, String phone) {
+    public Patient(String famillyName, String givenName, String address, String sex, LocalDate birthDate, String phone) {
         this.familly = famillyName;
         this.given = givenName;
         this.address = address;
@@ -95,11 +100,11 @@ public class Patient {
         this.sex = sex;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
