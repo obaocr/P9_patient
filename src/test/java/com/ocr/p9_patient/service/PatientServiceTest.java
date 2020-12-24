@@ -58,5 +58,35 @@ public class PatientServiceTest {
         assertTrue(itemPatient != null);
     }
 
+    @Test
+    void addPatient() {
+        LocalDate birth = LocalDate.of(2000,1,15);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
+        patient.setId(999);
+        Mockito.when(patientRepository.save(patient)).thenReturn(patient);
+        Integer Id = patientService.addPatient(patient);
+        assertTrue(Id == 999);
+    }
+
+    @Test
+    void updatePatient() {
+        LocalDate birth = LocalDate.of(2000,1,15);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
+        patient.setId(999);
+        Mockito.when(patientRepository.findById(999)).thenReturn(Optional.of(patient));
+        Mockito.when(patientRepository.save(patient)).thenReturn(patient);
+        Boolean result= patientService.updatePatient(patient);
+        assertTrue(result == true);
+    }
+
+    @Test
+    void deletePatient() {
+        LocalDate birth = LocalDate.of(2000,1,15);
+        Patient patient = new Patient("Martin", "Alain",  "12 rue des oliviers", "M", birth,"+33 123456789");
+        patient.setId(999);
+        Mockito.when(patientRepository.findById(999)).thenReturn(Optional.of(patient));
+        Boolean result= patientService.deletePatientById(999);
+        assertTrue(result == true);
+    }
 
 }
