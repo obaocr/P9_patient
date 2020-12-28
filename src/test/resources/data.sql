@@ -1,0 +1,2 @@
+insert into Patient (FAMILLY, GIVEN, ADDRESS, SEX, BIRTH_DATE, PHONE)
+values('DUPOND', 'Alain', '12 rue des olivier 78000 Versailles', 'F', parsedatetime('17-09-2012 00:00:00.00', 'dd-MM-yyyy hh:mm:ss.SS'),'+33 102030405');
