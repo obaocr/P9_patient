@@ -19,15 +19,15 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="PATIENT_ID")
     private Integer Id;
-    @Column(name="FAMILLY")
+    @Column(name="FAMILLY",length = 50)
     private String familly;
-    @Column(name="GIVEN")
+    @Column(name="GIVEN",length = 50)
     private String given;
-    @Column(name="ADDRESS")
+    @Column(name="ADDRESS",length = 255)
     private String address;
-    @Column(name="PHONE")
+    @Column(name="PHONE",length = 30)
     private String phone;
-    @Column(name="SEX")
+    @Column(name="SEX",length = 10)
     private String sex;
     @Basic
     @Column(name="BIRTH_DATE")

@@ -88,26 +88,5 @@ public class PatientControlerTest {
                 .andReturn();
     }
 
-    @Disabled
-    @Test
-    void addPatientShouldReturn_OK() throws Exception {
-        LocalDate birth = LocalDate.of(2000,1,15);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedString = birth.format(formatter);
-
-        Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth,"+33 123456789");
-        Mockito.when(patientService.addPatient(patient)).thenReturn(999);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        //objectMapper.setDateFormat(formatter);
-        String patientJSON = objectMapper.writeValueAsString(patient);
-
-        this.mockMvc.perform(post("/Patient")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(patientJSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andReturn();
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.ocr.p9_patient.controler;
 
+import com.ocr.p9_patient.Utils.Check;
 import com.ocr.p9_patient.Utils.EntityIllegalArgumentException;
 import com.ocr.p9_patient.model.Patient;
 import com.ocr.p9_patient.service.PatientService;
@@ -21,14 +22,6 @@ public class PatientControler {
 
     @Autowired
     PatientService patientService;
-
-    private void checkInput(Patient patient) {
-        if (patient == null || patient.getFamilly().isEmpty() || patient.getGiven().isEmpty() ||  patient.getAddress().isEmpty()
-                || patient.getBirthDate() == null || patient.getSex().isEmpty() || patient.getPhone().isEmpty()) {
-            logger.error("All fields are mandatory for a Patient");
-            throw new EntityIllegalArgumentException("All fields are mandatory for a Patient");
-        }
-    }
 
     @GetMapping("/")
     public String patientHome() {
@@ -55,14 +48,14 @@ public class PatientControler {
     @PutMapping(value = "/Patient/{Id}")
     public Boolean updatePatient(@PathVariable("Id") Integer Id, @RequestBody @Valid Patient patient) {
         logger.debug("updatePatient");
-        checkInput(patient);
+        Check.checkPatient(patient);
         return patientService.updatePatient(patient);
     }
 
     @PostMapping(value = "/Patient")
     public Integer addPatient(@RequestBody @Valid Patient patient) {
         logger.debug("addPatient");
-        checkInput(patient);
+        Check.checkPatient(patient);
         return patientService.addPatient(patient);
     }
 
