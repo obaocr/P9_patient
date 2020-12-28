@@ -27,7 +27,6 @@ public class CheckPatientTest {
         } catch (EntityIllegalArgumentException e) {
             assertTrue(e.toString().contains("Familly length must be <= 30"));
         }
-
     }
 
     @Test
@@ -46,7 +45,6 @@ public class CheckPatientTest {
         } catch (EntityIllegalArgumentException e) {
             assertTrue(e.toString().contains("Given length must be <= 30"));
         }
-
     }
 
     @Test
@@ -69,7 +67,6 @@ public class CheckPatientTest {
         } catch (EntityIllegalArgumentException e) {
             assertTrue(e.toString().contains("Address length must be <= 100"));
         }
-
     }
 
     @Test
@@ -88,7 +85,6 @@ public class CheckPatientTest {
         } catch (EntityIllegalArgumentException e) {
             assertTrue(e.toString().contains("Gender length must be <= 1"));
         }
-
     }
 
     @Test
@@ -107,7 +103,6 @@ public class CheckPatientTest {
         } catch (EntityIllegalArgumentException e) {
             assertTrue(e.toString().contains("Phone length must be <= 30"));
         }
-
     }
 
     @Test
@@ -126,6 +121,5 @@ public class CheckPatientTest {
         } catch (EntityIllegalArgumentException e) {
             assertTrue(e.toString().contains("All fields are mandatory for a Patient"));
         }
-
     }
 }
