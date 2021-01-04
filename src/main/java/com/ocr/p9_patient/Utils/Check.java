@@ -33,9 +33,9 @@ public class Check {
             logger.error("Phone length must be <= 30");
             throw new EntityIllegalArgumentException("Phone length must be <= 30");
         }
-        if (patient.getSex().length() > 1) {
-            logger.error("Gender length must be <= 1");
-            throw new EntityIllegalArgumentException("Gender length must be <= 1");
+        if (!(patient.getSex().equals("M") || patient.getSex().equals("M"))) {
+            logger.error("Gender must be M or F");
+            throw new EntityIllegalArgumentException("Gender must be M or F");
         }
     }
 
