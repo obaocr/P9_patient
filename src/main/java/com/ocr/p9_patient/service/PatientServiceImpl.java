@@ -37,7 +37,6 @@ public class PatientServiceImpl implements PatientService {
         } else {
             throw new EntityNotFoundException("Patient not found for Id: " + Id);
         }
-
     }
 
     @Override
