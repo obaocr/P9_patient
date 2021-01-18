@@ -33,7 +33,7 @@ public class Check {
             logger.error("Phone length must be <= 30");
             throw new EntityIllegalArgumentException("Phone length must be <= 30");
         }
-        if (!(patient.getSex().equals("M") || patient.getSex().equals("M"))) {
+        if (!(patient.getSex().equals("M") || patient.getSex().equals("F"))) {
             logger.error("Gender must be M or F");
             throw new EntityIllegalArgumentException("Gender must be M or F");
         }
