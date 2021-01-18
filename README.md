@@ -11,8 +11,8 @@ This application is a medical web services application, il allows CRUD operation
 1. Framework: Spring Boot v2.2.5
 2. Java 8
 3. MySQL 8.X and H2 for tests
-6. Maven 3.6
-7. Hibernate is used for the domain, but not used to init database object (please run script_data.sql)
+4. Maven 3.6
+5. Hibernate is used for the domain, but not used to init database object (please run script_data.sql)
 
 
 ## Setup 
