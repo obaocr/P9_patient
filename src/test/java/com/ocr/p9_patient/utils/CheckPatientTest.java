@@ -78,12 +78,12 @@ public class CheckPatientTest {
         patient.setFamilly("Test");
         patient.setGiven("Test");
         patient.setPhone("0102030405");
-        patient.setSex("MM");
+        patient.setSex("Z");
         patient.setBirthDate(birth);
         try {
             Check.checkPatient(patient);
         } catch (EntityIllegalArgumentException e) {
-            assertTrue(e.toString().contains("Gender length must be <= 1"));
+            assertTrue(e.toString().contains("Gender must be M or F"));
         }
     }
 
