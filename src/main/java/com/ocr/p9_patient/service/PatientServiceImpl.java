@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * PatientServiceImpl : implementation for patient
  */
-
 @Service
 public class PatientServiceImpl implements PatientService {
 

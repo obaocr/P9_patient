@@ -16,7 +16,7 @@ import java.util.List;
  * Controler for Patient
  */
 @RestController
-public class PatientControler {
+    public class PatientControler {
 
     private Logger logger = LoggerFactory.getLogger(PatientControler.class);
 
