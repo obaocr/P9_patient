@@ -29,6 +29,12 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public List<Patient> getPatientsByName(String name) {
+        log.debug("getPatientsByName");
+        return patientRepository.findPatientsByFamilly(name);
+    }
+
+    @Override
     public Patient getPatientById(Integer Id) {
         log.debug("getPatientById");
         if (patientRepository.findById(Id).isPresent()) {

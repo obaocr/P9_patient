@@ -35,8 +35,18 @@ import java.util.List;
         return patientService.getPatients();
     }
 
-    @GetMapping("/Patient")
-    public Patient getPatientById(@RequestParam Integer Id) {
+    @GetMapping("/patient")
+    public List<Patient> getPatients(@RequestParam(required = false) String familly) {
+        logger.debug("getPatientByFamilly");
+        if(familly != null) {
+            return patientService.getPatientsByName(familly);
+        } else {
+            return patientService.getPatients();
+        }
+    }
+
+    @GetMapping("/patient/{Id}")
+    public Patient getPatientById(@PathVariable Integer Id) {
         logger.debug("getPatientById");
         if (Id == null || Id == 0 ) {
             logger.error("The parameter Id is mandatory and must be > 0");
@@ -45,21 +55,21 @@ import java.util.List;
         return patientService.getPatientById(Id);
     }
 
-    @PutMapping(value = "/Patient/{Id}")
+    @PutMapping(value = "/patient/{Id}")
     public Boolean updatePatient(@PathVariable("Id") Integer Id, @RequestBody @Valid Patient patient) {
         logger.debug("updatePatient");
         Check.checkPatient(patient);
         return patientService.updatePatient(patient);
     }
 
-    @PostMapping(value = "/Patient")
+    @PostMapping(value = "/patient")
     public Integer addPatient(@RequestBody @Valid Patient patient) {
         logger.debug("addPatient");
         Check.checkPatient(patient);
         return patientService.addPatient(patient);
     }
 
-    @DeleteMapping(value = "/Patient/{Id}")
+    @DeleteMapping(value = "/patient/{Id}")
     public Boolean deletePatient(@PathVariable("Id") Integer Id) {
         logger.debug("deletePatient");
         return patientService.deletePatientById(Id);

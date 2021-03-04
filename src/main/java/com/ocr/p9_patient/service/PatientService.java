@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface PatientService {
     public List<Patient> getPatients();
+    public List<Patient> getPatientsByName(String name);
     public Patient getPatientById(Integer Id);
     public Integer addPatient(Patient patient);
     public Boolean updatePatient(Patient patient);

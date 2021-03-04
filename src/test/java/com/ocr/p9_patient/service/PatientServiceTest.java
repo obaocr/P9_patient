@@ -58,6 +58,18 @@ public class PatientServiceTest {
     }
 
     @Test
+    void patientGetByName() {
+        List<Patient> patients = new ArrayList<>();
+        LocalDate birth = LocalDate.of(2000, 1, 15);
+        Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth, "+33 123456789");
+        patient.setId(999);
+        patients.add(patient);
+        Mockito.when(patientRepository.findPatientsByFamilly("Martin")).thenReturn(patients);
+        List<Patient> items = patientService.getPatientsByName("Martin");
+        assertTrue(items.size() > 0);
+    }
+
+    @Test
     void addPatient() {
         LocalDate birth = LocalDate.of(2000, 1, 15);
         Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth, "+33 123456789");
