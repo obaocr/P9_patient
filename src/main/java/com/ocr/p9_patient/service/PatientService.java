@@ -4,6 +4,9 @@ import com.ocr.p9_patient.model.Patient;
 
 import java.util.List;
 
+/**
+ * PatientService Interface
+ */
 public interface PatientService {
     public List<Patient> getPatients();
     public List<Patient> getPatientsByName(String name);
