@@ -22,10 +22,10 @@ public class PatientTest {
         patient.setSex("M");
         patient.setBirthDate(birth);
         assertTrue(patient != null);
-        assertTrue(patient.getSex() == "M");
-        assertTrue(patient.getAddress() == "12 rue des oliviers");
-        assertTrue(patient.getFamilly() == "TestFamille");
-        assertTrue(patient.getGiven() == "Test");
+        assertTrue(patient.getSex().equals("M"));
+        assertTrue(patient.getAddress().equals("12 rue des oliviers"));
+        assertTrue(patient.getFamilly().equals("TestFamille"));
+        assertTrue(patient.getGiven().equals("Test"));
         assertTrue(patient.getId() != null);
         assertTrue(patient.getBirthDate() != null);
 

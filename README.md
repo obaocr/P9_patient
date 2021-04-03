@@ -52,3 +52,6 @@ Docker commands are (type from root folder P9_patient):
 
 ### Other consideration
 JAVADOC has been initialized and needs to be completed.
+JASYPT tuto : https://www.geeksforgeeks.org/how-to-encrypt-passwords-in-a-spring-boot-project-using-jasypt/
+JASYPT Online encryption tool : https://www.devglan.com/online-tools/jasypt-online-encryption-decryption (secret key 123456)
+JASYPT https://blog.impulsebyingeniance.io/utilisation-de-jasypt-sous-spring-boot/
