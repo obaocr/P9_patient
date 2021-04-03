@@ -122,4 +122,5 @@ public class CheckPatientTest {
             assertTrue(e.toString().contains("All fields are mandatory for a Patient"));
         }
     }
+
 }

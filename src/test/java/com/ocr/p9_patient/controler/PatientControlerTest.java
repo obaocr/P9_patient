@@ -45,7 +45,7 @@ public class PatientControlerTest {
         patients.add(patient);
         Mockito.when(patientService.getPatients()).thenReturn(patients);
 
-        this.mockMvc.perform(get("/Patients")
+        this.mockMvc.perform(get("/patient")
                 .characterEncoding("utf-8"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -59,8 +59,7 @@ public class PatientControlerTest {
         patient.setId(999);
         Mockito.when(patientService.getPatientById(999)).thenReturn(patient);
 
-        this.mockMvc.perform(get("/Patient")
-                .param("Id", "999")
+        this.mockMvc.perform(get("/patient/999")
                 .characterEncoding("utf-8"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -68,19 +67,18 @@ public class PatientControlerTest {
     }
 
     @Test
-    void getPatientByIdShouldReturn_KO() throws Exception {
+    void getPatientByNameShouldReturnOK() throws Exception {
         LocalDate birth = LocalDate.of(2000, 1, 15);
-        Patient patient = new Patient("Martin", "Alain", "12 rue des oliviers", "M", birth, "+33 123456789");
+        Patient patient = new Patient("Martin", "Alain", "24 rue des acacias", "M", birth, "+33 123456789");
         patient.setId(999);
         Mockito.when(patientService.getPatientById(999)).thenReturn(patient);
-        // Id null => KO
-        this.mockMvc.perform(get("/Patient")
-                .param("Id", "")
+
+        this.mockMvc.perform(get("/patient")
+                .param("familly","Martin")
                 .characterEncoding("utf-8"))
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
     }
-
 
 }

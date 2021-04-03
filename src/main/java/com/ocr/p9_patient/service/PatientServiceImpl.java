@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * PatientServiceImpl : implementation for patient
  */
-
 @Service
 public class PatientServiceImpl implements PatientService {
 
@@ -27,6 +26,12 @@ public class PatientServiceImpl implements PatientService {
     public List<Patient> getPatients() {
         log.debug("getPatients");
         return patientRepository.findAll();
+    }
+
+    @Override
+    public List<Patient> getPatientsByName(String name) {
+        log.debug("getPatientsByName");
+        return patientRepository.findPatientsByFamilly(name);
     }
 
     @Override
